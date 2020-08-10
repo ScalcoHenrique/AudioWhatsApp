@@ -8,7 +8,7 @@ const interval = setInterval(() => {
     }
 
     const button = document.createElement("button")
-    button.innerHTML = "2x"
+    button.innerHTML = "1x"
     button.classList.add("twoTimesButton")
     header.appendChild(button)
 
@@ -17,7 +17,16 @@ const interval = setInterval(() => {
         console.log(audios)
         audios.forEach((audio) => {
             console.log(audio)
-            audio.playbackRate = 2
+            
+            if (audio.playbackRate == 1) {
+                audio.playbackRate = 2
+                button.innerHTML = '2x'
+                button.style.color = 'green'
+            } else {
+                audio.playbackRate = 1
+                button.innerHTML = '1x'
+                button.style.color = 'grey'
+            }
 
         })
     })
